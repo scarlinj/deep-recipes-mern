@@ -1,10 +1,10 @@
 const faker = require("faker");
 
 const db = require("../config/connection");
-const { Thought, User } = require("../models");
+const { Recipe, User } = require("../models");
 
 db.once("open", async () => {
-  await Thought.deleteMany({});
+  await Recipe.deleteMany({});
   await User.deleteMany({});
 
   // create user data
@@ -37,39 +37,37 @@ db.once("open", async () => {
     await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
   }
 
-  // create thoughts
-  let createdThoughts = [];
+  // create recipes
+  let createdRecipes = [];
   for (let i = 0; i < 100; i += 1) {
-    const thoughtText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const recipeText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdThought = await Thought.create({ thoughtText, username });
+    const createdRecipe = await Recipe.create({ recipeText, username });
 
     const updatedUser = await User.updateOne(
       { _id: userId },
-      { $push: { thoughts: createdThought._id } }
+      { $push: { recipes: createdRecipe._id } }
     );
 
-    createdThoughts.push(createdThought);
+    createdRecipes.push(createdRecipe);
   }
 
-  // create reactions
+  // create comments
   for (let i = 0; i < 100; i += 1) {
-    const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const commentBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username } = createdUsers.ops[randomUserIndex];
 
-    const randomThoughtIndex = Math.floor(
-      Math.random() * createdThoughts.length
-    );
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
+    const randomRecipeIndex = Math.floor(Math.random() * createdRecipes.length);
+    const { _id: recipeId } = createdRecipes[randomRecipeIndex];
 
-    await Thought.updateOne(
-      { _id: thoughtId },
-      { $push: { reactions: { reactionBody, username } } },
+    await Recipe.updateOne(
+      { _id: recipeId },
+      { $push: { comments: { commentBody, username } } },
       { runValidators: true }
     );
   }

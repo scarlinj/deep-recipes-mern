@@ -8,22 +8,22 @@ const typeDefs = gql`
     username: String
     email: String
     friendCount: Int
-    thoughts: [Thought]
+    recipes: [Recipe]
     friends: [User]
   }
 
-  type Thought {
+  type Recipe {
     _id: ID
-    thoughtText: String
+    recipeText: String
     createdAt: String
     username: String
-    reactionCount: Int
-    reactions: [Reaction]
+    commentCount: Int
+    comments: [Comment]
   }
 
-  type Reaction {
+  type Comment {
     _id: ID
-    reactionBody: String
+    commentBody: String
     createdAt: String
     username: String
   }
@@ -31,8 +31,8 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    thoughts(username: String): [Thought]
-    thought(_id: ID!): Thought
+    recipes(username: String): [Recipe]
+    recipe(_id: ID!): Recipe
   }
 `;
 // export the typeDefs

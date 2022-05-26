@@ -1,28 +1,28 @@
-const { User, Thought } = require("../models");
+const { User, Recipe } = require("../models");
 
 const resolvers = {
   Query: {
-    thoughts: async (parent, { username }) => {
+    recipes: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
+      return Recipe.find(params).sort({ createdAt: -1 });
     },
-    // place this inside of the `Query` nested object right after `thoughts`
-    thought: async (parent, { _id }) => {
-      return Thought.findOne({ _id });
+    // place this inside of the `Query` nested object right after `recipes`
+    recipe: async (parent, { _id }) => {
+      return Recipe.findOne({ _id });
     },
     // get all users
     users: async () => {
       return User.find()
         .select("-__v -password")
         .populate("friends")
-        .populate("thoughts");
+        .populate("recipes");
     },
     // get a user by username
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select("-__v -password")
         .populate("friends")
-        .populate("thoughts");
+        .populate("recipes");
     },
   },
 };
