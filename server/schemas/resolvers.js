@@ -8,36 +8,14 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('thoughts')
-          .populate('friends');
+          .populate('recipes')
+          // .populate('friends');
     
         return userData;
       }
     
       throw new AuthenticationError('Not logged in');
     }
-  },
-  Mutation: {
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
-
-      return user;
-    },
-    login: async (parent, { email, password }) => {
-  const user = await User.findOne({ email });
-
-  if (!user) {
-    throw new AuthenticationError('Incorrect credentials');
-  }
-
-  const correctPw = await user.isCorrectPassword(password);
-
-  if (!correctPw) {
-    throw new AuthenticationError('Incorrect credentials');
-  }
-
-  return user;
-},
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -61,9 +39,39 @@ const resolvers = {
     
       const token = signToken(user);
       return { token, user };
+    },
+    addRecipe: async (parent, args, context) => {
+      if (context.user) {
+        const recipe = await Recipe.create({ ...args, username: context.user.username });
+    
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { recipes: recipe._id } },
+          { new: true }
+        );
+    
+        return recipe;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addComment: async (parent, { recipeId, commentBody }, context) => {
+      if (context.user) {
+        const updatedRecipe = await Recipe.findOneAndUpdate(
+          { _id: recipeId },
+          { $push: { comments: { commentBody, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+    
+        return updatedRecipe;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
     }
     },
   };
+
+// previous code
 // const resolvers = {
 //   Query: {
 //     recipes: async (parent, { username }) => {
