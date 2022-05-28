@@ -1,3 +1,5 @@
+// React no longer needs to be imported since version 17, but many codebases are not yet updated
+// import React below
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_RECIPES } from '../utils/queries';
