@@ -1,18 +1,13 @@
-import {
-  ApolloProvider,
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink,
-} from "@apollo/client";
-import React from "react";
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import React from 'react';
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-import Home from "./pages/Home";
+import Home from './pages/Home';
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: 'http://localhost:3001/graphql',
 });
 
 const client = new ApolloClient({
@@ -32,6 +27,6 @@ function App() {
       </div>
     </ApolloProvider>
   );
-};
+}
 
 export default App;

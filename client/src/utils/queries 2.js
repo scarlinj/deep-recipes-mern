@@ -1,4 +1,6 @@
-import { gql } from "@apollo/client";
+// this file will store all GraphQL query requests
+
+import { gql } from '@apollo/client';
 
 export const QUERY_RECIPES = gql`
   query recipes($username: String) {
