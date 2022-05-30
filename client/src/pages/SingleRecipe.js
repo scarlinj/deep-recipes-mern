@@ -7,8 +7,10 @@ import CommentList from '../components/CommentList';
 const SingleRecipe = props => {
   
   const { id: recipeId } = useParams();
+
   // console.log(recipeId);
   const { loading, data } = useQuery(QUERY_RECIPE, {
+    // The id property on the variables object will become the $id parameter in the GraphQL query
     variables: { id: recipeId }
   });
   

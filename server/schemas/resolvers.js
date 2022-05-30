@@ -30,7 +30,7 @@ const resolvers = {
     },
 
     recipe: async(parent, args ) => {
-      if (args.username) {
+      if (args._id) {
         // find a single recipe where username matches recipe being passed in
         const recipe = await Recipe.find({ where: {username:args.username}})
         return recipe
