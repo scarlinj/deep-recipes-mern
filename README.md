@@ -1,6 +1,6 @@
 # deep-recipes
 
-future develpment "we can add frinds feature Module 21.2.6"
+future develpment: we can add friends feature Module 21.2.6
 
 Installation Instructions:
 
