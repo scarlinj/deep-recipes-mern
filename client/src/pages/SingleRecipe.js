@@ -4,7 +4,7 @@ import { QUERY_RECIPE } from '../utils/queries';
 import { useParams } from 'react-router-dom';
 import CommentList from '../components/CommentList';
 
-const SingleRecipe = props => {
+const SingleRecipe = (props) => {
   
   const { id: recipeId } = useParams();
 
@@ -26,6 +26,8 @@ const SingleRecipe = props => {
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {recipe.username}
+         
+            {/* recipe.createdAt not calling on page */}
           </span>{' '}
           recipe on {recipe.createdAt}
         </p>
@@ -38,5 +40,5 @@ const SingleRecipe = props => {
     </div>
   );
 };
-
+console.log(SingleRecipe);
 export default SingleRecipe;

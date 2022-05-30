@@ -37,3 +37,19 @@ export const QUERY_RECIPE = gql`
     }
   }
 `;
+
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      recipes {
+        _id
+        recipeText
+        createdAt
+        commentCount
+      }
+    }
+  }
+`;
