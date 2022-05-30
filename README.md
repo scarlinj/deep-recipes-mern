@@ -13,22 +13,29 @@ Downgrade @testing-library/react to ^11.1.0 inside of the package.json file.
 run the following in the server directory to start up the program:
 - npm install
 - npm install json webtoken
+- npm install react-router-dom
 - npm install -D concurrently
 
-in the main directory, run the below to create the client directory:
+If you don't have a client folder, in the main directory, run the below to create the client directory:
 - npx create-react app client (this will create the client directory)
 Delete the package-lock.json file and node_modules directory from the client directory.
-- npm install -D concurrently
 
 in the client directory, install Apollo GraphQL by typing the below:
 
 npm i @apollo/client graphql
+
+To start the file:
+- navigate to the root directory, run:
+    - npm run develop
 
 To start the file in graphQl:
 - navigate to server directory, run:
     - npm run watch
 - navigate to client directory, run:
     - npm start
+    - you may have to run "npm run develop" if that does not work
+
+*** 5/29 should just need to go to root directory and run "npm start"
 
 
 

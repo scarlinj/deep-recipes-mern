@@ -41,6 +41,7 @@ function App() {
                 path="/signup"
                 element={<Signup />}
               />
+              {/* allow /profile and /profile/myUsername to both render the Profile component */}
               <Route
                 path="/profile/:username?"
                 element={<Profile />}

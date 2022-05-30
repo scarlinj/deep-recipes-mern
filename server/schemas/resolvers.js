@@ -26,7 +26,18 @@ const resolvers = {
         const recipes = await Recipe.find()
         return recipes;
       }
-    }
+    },
+
+    recipe: async(parent, args ) => {
+      if (args.username) {
+        // find a single recipe where username matches recipe being passed in
+        const recipe = await Recipe.find({ where: {username:args.username}})
+        return recipe
+      } else {
+        const recipe = await Recipe.find()
+        return recipe;
+      }
+    }, 
   },
 
   Mutation: {
