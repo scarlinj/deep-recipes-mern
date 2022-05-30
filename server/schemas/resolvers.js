@@ -15,8 +15,20 @@ const resolvers = {
       }
     
       throw new AuthenticationError('Not logged in');
+    },
+    // args requests the recipes for each the Username
+    recipes: async(parent, args ) => {
+      if (args.username) {
+        // find all recipes where username matches recipe being passed in
+        const recipes = await Recipe.find({ where: {username:args.username}})
+        return recipes
+      } else {
+        const recipes = await Recipe.find()
+        return recipes;
+      }
     }
   },
+
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
@@ -55,6 +67,7 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
+    
     addComment: async (parent, { recipeId, commentBody }, context) => {
       if (context.user) {
         const updatedRecipe = await Recipe.findOneAndUpdate(

@@ -4,6 +4,7 @@ const secret = 'mysecretsshhhhh';
 const expiration = '2h';
 
 module.exports = {
+  // don't need to pass username from front end to backend - can grab it out of token
   signToken: function({ username, email, _id }) {
     const payload = { username, email, _id };
 
