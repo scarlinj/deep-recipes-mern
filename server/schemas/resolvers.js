@@ -16,6 +16,7 @@ const resolvers = {
     
       throw new AuthenticationError('Not logged in');
     },
+    
     // args requests the recipes for each the Username
     recipes: async(parent, args ) => {
       if (args.username) {
@@ -67,7 +68,7 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
-    
+
     addComment: async (parent, { recipeId, commentBody }, context) => {
       if (context.user) {
         const updatedRecipe = await Recipe.findOneAndUpdate(
