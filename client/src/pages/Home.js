@@ -8,7 +8,7 @@ import RecipeList from '../components/RecipeList';
 const Home = () => {
   // use useQuery hook to make query request
   const { loading, data } = useQuery(QUERY_RECIPES);
-  // optional chaining method below. Node may get syntax error.
+
   const recipes = data?.recipes || [];
   console.log(recipes);
 
