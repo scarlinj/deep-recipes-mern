@@ -23,3 +23,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_RECIPE = gql`
+  mutation addRecipe($recipeText: String!) {
+    addRecipe(recipeText: $recipeText) {
+      _id
+      recipeText
+      createdAt
+      username
+      commentCount
+      comments {
+        _id
+      }
+    }
+  }
+`;
