@@ -38,3 +38,18 @@ export const ADD_RECIPE = gql`
     }
   }
 `;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($recipeId: ID!, $commentBody: String!) {
+    addComment(recipeId: $recipeId, commentBody: $commentBody) {
+      _id
+      commentCount
+      comments {
+        _id
+        commentBody
+        createdAt
+        username
+      }
+    }
+  }
+`;

@@ -1,8 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
+import Auth from '../utils/auth';
 import { useQuery } from "@apollo/client";
 import { QUERY_RECIPE } from "../utils/queries";
+
 import CommentList from "../components/CommentList";
-import { useParams } from "react-router-dom";
+import CommentForm from '../components/CommentForm';
 
 const SingleRecipe = (props) => {
   
@@ -38,6 +42,8 @@ const SingleRecipe = (props) => {
       </div>
 
       {recipe.commentCount > 0 && <CommentList comments={recipe.comments} />}
+      {Auth.loggedIn() && <CommentForm recipeId={recipe._id} />}
+
     </div>
   );
 };
