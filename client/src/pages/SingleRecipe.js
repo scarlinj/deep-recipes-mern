@@ -5,6 +5,7 @@ import CommentList from "../components/CommentList";
 import { useParams } from "react-router-dom";
 
 const SingleRecipe = (props) => {
+  
   const { id: recipeId } = useParams();
   console.log(recipeId);
 
