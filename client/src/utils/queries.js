@@ -34,3 +34,19 @@ export const QUERY_RECIPE = gql`
     }
   }
 `;
+
+export const QUERY_ME = gql`
+  query {
+    me {
+      username
+      email
+      friendCount
+      recipes {
+        recipeText
+      }
+      friends {
+        username
+      }
+    }
+  }
+`;
