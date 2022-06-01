@@ -36,17 +36,65 @@ export const QUERY_RECIPE = gql`
 `;
 
 export const QUERY_ME = gql`
-  query {
+  {
     me {
+      _id
       username
       email
-      friendCount
       recipes {
+        _id
         recipeText
+        createdAt
+        commentCount
+        comments {
+          _id
+          createdAt
+          commentBody
+          username
+        }
       }
-      friends {
-        username
+    }
+  }
+`;
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
+  {
+    me {
+      _id
+      username
+      email
+      recipes {
+        _id
+        recipeText
+        createdAt
+        commentCount
+        comments {
+          _id
+          createdAt
+          commentBody
+          username
+        }
       }
+    }
+  }
+`;
+
+export const QUERY_USER_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
     }
   }
 `;
