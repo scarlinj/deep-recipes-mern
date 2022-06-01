@@ -1,6 +1,5 @@
-const { User, Recipe } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
-
+const { User, Recipe } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -10,14 +9,22 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
           .populate("recipes")
-          .populate("friends");
 
         return userData;
       }
 
       throw new AuthenticationError("Not logged in");
     },
-
+    users: async () => {
+      return User.find()
+        .select('-__v -password')
+        .populate('recipes')
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('recipes');
+    },
     // args requests the recipes for each the Username
     recipes: async (parent, args) => {
       if (args.username) {
