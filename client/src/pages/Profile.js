@@ -6,7 +6,7 @@ import RecipeList from "../components/RecipeList";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 
-const Profile = () => {
+const Profile = (props) => {
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_ME);
