@@ -24,5 +24,8 @@
   "homepage": "https://github.com/hestokes/project3-mern#readme",
   "devDependencies": {
     "concurrently": "^7.2.1"
+  },
+  "dependencies": {
+    "serve": "^13.0.2"
   }
 }
