@@ -3,7 +3,7 @@
   --secondary: #99f7f2;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
-  --light: #e1f5f4;
+  --light: #37eee5;
   --dark: #6c7575;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
@@ -31,7 +31,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #f3fffee1;
+  background-color: #eafb7ce1;
 }
 
 h1,

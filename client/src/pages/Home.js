@@ -30,7 +30,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <RecipeList recipes={recipes} title="Some Food for Recipe(s)..." />
+            <RecipeList recipes={recipes} title="Share Sexy for Recipe(s)..." />
           )}
         </div>
       </div>

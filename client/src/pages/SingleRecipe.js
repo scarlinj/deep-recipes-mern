@@ -1,12 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import CommentList from "../components/CommentList";
+import CommentForm from '../components/CommentForm';
+
 import Auth from '../utils/auth';
 import { useQuery } from "@apollo/client";
 import { QUERY_RECIPE } from "../utils/queries";
-
-import CommentList from "../components/CommentList";
-import CommentForm from '../components/CommentForm';
 
 const SingleRecipe = (props) => {
   
@@ -32,7 +32,7 @@ const SingleRecipe = (props) => {
             {recipe.username}
             {/* recipe.createdAt not calling, this is stopping the whole forward motion */}
           </span>
-          {""}
+          {``}
           recipe on {recipe.createdAt}
         </p>
 
