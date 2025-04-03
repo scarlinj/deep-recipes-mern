@@ -2,6 +2,34 @@
 
 future develpment: add friends feature Module 21.2.6
 
+# Project Title: Recipes From Around the World
+## Table Of Contents
+----------------------
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contribution](#contribution)
+* [Questions](#questions)
+### Description
+This project is meant to allow users to share their favorite food recipes with the world, and also to receive feedback through users' comments regarding their experiences with the recipes. 
+### Installation
+This project requires the installation of NPM, React, Apollo, GraphQL, and json webtoken. 
+### Usage
+In order to post recipes, a user requires an account, which is easily made using the links at the top of the page. 
+The following link is now inactive, as I cancelled Heroku: [Please click here for the deployed project.](https://big-sexy-recipes.herokuapp.com/)
+### License
+![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
+### Contribute
+Please reach out to us through GitHub or LinkedIn. 
+### Questions
+Developers' Profiles:
+[Stephen Carlin's Github](https://github.com/scarlinj)
+[Jeongho Lee's Github](https://github.com/Jeongholee21)
+[Aaron Stokes' Github](https://github.com/hestokes)
+[Noorullah Wardak's Github](https://github.com/786-go)
+    
+
 Installation Instructions:
 
 - npm install react
@@ -34,34 +62,6 @@ To start the file in graphQl:
     - npm run watch
 - navigate to client directory, run:
     - npm start
-
-# Project Title: Recipes From Around the World
-## Table Of Contents
-----------------------
-* [Description](#description)
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contribution](#contribution)
-* [Questions](#questions)
-### Description
-This project is meant to allow users to share their favorite food recipes with the world, and also to receive feedback through users' comments regarding their experiences with the recipes. 
-### Installation
-This project requires the installation of NPM, React, Apollo, GraphQL, and json webtoken. 
-### Usage
-In order to post recipes, a user requires an account, which is easily made using the links at the top of the page. 
-The following link is now inactive, as I cancelled Heroku: [Please click here for the deployed project.](https://big-sexy-recipes.herokuapp.com/)
-### License
-![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
-### Contribute
-Please reach out to us through GitHub or LinkedIn. 
-### Questions
-Developers' Profiles:
-[Stephen Carlin's Github](https://github.com/scarlinj)
-[Jeongho Lee's Github](https://github.com/Jeongholee21)
-[Aaron Stokes' Github](https://github.com/hestokes)
-[Noorullah Wardak's Github](https://github.com/786-go)
-    
 
 
 
