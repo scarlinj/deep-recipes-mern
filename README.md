@@ -50,7 +50,7 @@ This project is meant to allow users to share their favorite food recipes with t
 This project requires the installation of NPM, React, Apollo, GraphQL, and json webtoken. 
 ### Usage
 In order to post recipes, a user requires an account, which is easily made using the links at the top of the page. 
-[Please click here for the deployed project.](https://big-sexy-recipes.herokuapp.com/)
+The following link is now inactive, as I cancelled Heroku: [Please click here for the deployed project.](https://big-sexy-recipes.herokuapp.com/)
 ### License
 ![GitHub license](https://img.shields.io/badge/license-MIT-green.svg)
 ### Contribute
